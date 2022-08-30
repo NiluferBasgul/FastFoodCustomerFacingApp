@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    border-radius: 10px;
+    border: 1px solid $primary;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+  }
+}

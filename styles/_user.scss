@@ -1,0 +1,512 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+  }
+
+  .text-first-letter-capitalize {
+    text-transform: lowercase !important;
+
+    &:first-letter {
+      text-transform: capitalize !important;
+    }
+  }
+
+  .bitter {
+    font-family: 'Bitter', serif;
+  }
+
+  img {
+    user-select: none;
+  }
+  
+  html {
+    font-size: $base-font-size;
+    scroll-behavior: smooth;
+  
+    @media screen and (max-width: 768px) {
+      font-size: 75%;
+    }
+  
+    @media screen and (max-width: 450px) {
+      font-size: 75%;
+    }
+  }
+
+  .accordion {
+    border: 0 !important
+  }
+  
+  body {
+    margin: 0;
+    font-size: 1.15rem;
+    // background-color: $light-secondary;
+    font-family: $font, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html,
+  body,
+  #__next {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #__next {
+    white-space: pre-line;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+  }
+  
+  main {
+    flex-grow: 1;
+  }
+  
+  header,
+  main,
+  footer {
+    flex-shrink: 0;
+  }
+  
+  .main-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .main {
+    max-width: 120rem;
+    width: 100%;
+    padding: 2rem 5rem;
+    margin: 0 auto;
+  }
+
+  // ios disable zoom on input
+  input[type="text"] {
+    font-size: inherit;
+  }
+  
+  .small-text {
+    font-size: xx-small;
+    margin: 0;
+    padding: 0;
+    text-transform: initial;
+    word-break: break-all;
+  }
+
+  .row {
+    --bs-gutter-x: 0rem;
+  }
+  
+  .pointer {
+    cursor: pointer !important;
+  }
+  
+  .grow {
+    transition: all 0.2s ease-in-out;
+
+    &__keep {
+      transform: scale(1.09);
+    }
+  
+    &:hover {
+      transform: scale(1.09);
+    }
+  }
+  
+  .container {
+    @media screen and (min-width: 1440px) {
+      min-width: 1400px;
+    }
+  }
+  
+  .strike-effect {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      top: 50%;
+      margin-top: -0.5px;
+      background: $black;
+      left: -1.5px;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      top: 50%;
+      margin-top: -0.5px;
+      background: $black;
+      right: 1.5px;
+      transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    &:hover {
+      &:before {
+        background: $black;
+        width: 100%;
+        transition: width 0.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      &:after {
+        background: transparent;
+        width: 100%;
+        transition: 0s;
+      }
+    }
+  
+    &-disable {
+      position: relative;
+  
+      &:before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        top: 50%;
+        margin-top: -0.5px;
+        background: $black;
+        left: -1.5px;
+        background: $black;
+        width: 100%;
+        transition: width 0.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        top: 50%;
+        margin-top: -0.5px;
+        background: $black;
+        right: 1.5px;
+        background: $black;
+        transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+        background: transparent;
+        width: 100%;
+        transition: 0s;
+      }
+    }
+  }
+
+  .not-allowed {
+    cursor: not-allowed;
+    pointer-events: none !important;
+  }
+  
+  .ReactModal__Overlay {
+    opacity: 0.4;
+    transform: translateY(+150px);
+    transition: all 100ms ease-in-out;
+  }
+  
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+    transform: translateY(+150px);
+  }  
+
+  .color-white {
+    color: $white !important;
+  }
+  
+  .half-opacity {
+    opacity: 0.5
+  }
+
+  // Slider Start
+
+  li.slide {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+      background: transparent !important;
+  }
+
+  .carousel .thumb img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.carousel .slide img {
+    max-height: 400px;  /* change this to whatever you want */
+    width: auto;
+    object-fit: contain;
+}
+
+
+  // Slider End
+
+
+  // Text effect Start
+
+
+.background_whole_wheat {
+  background: $wheat !important;
+
+  &.active {
+    border-color: darken($wheat, 55%) !important;
+  }
+
+  & > * {
+    color: darken($wheat, 55%)
+  }
+}
+
+.background_gluten_free {
+  background: $gluten-free !important;
+
+  &.active {
+    border-color: darken($gluten-free, 55%) !important;
+  }
+  
+  & > * {
+    color: darken($gluten-free, 55%)
+  }
+}
+
+.background_classic_white {
+  background: $white !important
+}
+
+#crustAddition {
+  &__parmesan_side {
+    background-color: lighten($parmesan_side_color, 15%);
+    border-color: $parmesan_side_color;
+    outline: $parmesan_side_color;
+  }
+
+  &__sesame_side {
+    background-color: lighten($sesame_side_color, 15%);
+    border-color: $sesame_side_color;
+    outline: $sesame_side_color;
+  }
+
+  &__olive_oil_garlic_side {
+    background-color: lighten($olive_oil_garlic_side_color, 15%);
+    border-color: $olive_oil_garlic_side_color;
+    outline: $olive_oil_garlic_side_color;
+  }
+
+  &__chilly_peppers_side {
+    background-color: lighten($chilly_pepper_side_color, 15%);
+    border-color: $chilly_pepper_side_color;
+    outline: $chilly_pepper_side_color;
+  }
+
+  &__fresh_oregano_side {
+    background-color: lighten($oregano_side_color, 15%);
+    border-color: $oregano_side_color;
+    outline: $oregano_side_color;
+  }
+
+  &__garlic_butter_side {
+    background-color: lighten($garlic_butter_side_color, 15%);
+    border-color: $garlic_butter_side_color;
+    outline: $garlic_butter_side_color;
+  }
+}
+
+.TitleTextEffect {
+
+  &__initial {
+    font-weight: 700;
+    letter-spacing: 2px; 
+    font-size: 1.15rem;
+    font-family: 'Cabin', sans-serif; 
+  }
+
+  &__parmesan_side {
+      font-weight: 700;
+      letter-spacing: 2px; 
+      font-style: italic;
+      font-size: 1.15rem;
+      font-family: 'Cabin', sans-serif;
+      color: lighten($parmesan_side_color, 58%);
+      text-shadow: 0.5px 0.5px 0px lighten($parmesan_side_color, 20%),
+      1px 1px 0px lighten($parmesan_side_color, 45%),
+      1.5px 1.5px 0px lighten($parmesan_side_color, 37%),
+      2px 2px 0px lighten($parmesan_side_color, 49%),
+      2.5px 2.5px 0px darken($parmesan_side_color, 19%),
+      2.5px 2.5px 2px darken($parmesan_side_color, 19%),
+    }
+
+  &__sesame_side {
+    font-weight: 700;
+    font-size: 1.15rem;
+    font-style: italic;
+    letter-spacing: 2px; 
+    font-family: 'Cabin', sans-serif;
+    color: lighten($sesame_side_color, 58%);
+    text-shadow: 0.5px 0.5px 0px lighten($sesame_side_color, 20%),
+    1px 1px 0px lighten($sesame_side_color, 45%),
+    1.5px 1.5px 0px lighten($sesame_side_color, 37%),
+    2px 2px 0px lighten($sesame_side_color, 49%),
+    2.5px 2.5px 0px darken($sesame_side_color, 19%),
+    2.5px 2.5px 2px darken($sesame_side_color, 19%),
+  }
+
+  &__olive_oil_garlic_side {
+    font-weight: 700;
+    font-size: 1.15rem;
+    font-style: italic;
+    letter-spacing: 2px; 
+    font-family: 'Cabin', sans-serif;
+    color: lighten($olive_oil_garlic_side_color, 58%);
+    text-shadow: 0.5px 0.5px 0px lighten($olive_oil_garlic_side_color, 20%),
+    1px 1px 0px lighten($olive_oil_garlic_side_color, 45%),
+    1.5px 1.5px 0px lighten($olive_oil_garlic_side_color, 37%),
+    2px 2px 0px lighten($olive_oil_garlic_side_color, 49%),
+    2.5px 2.5px 0px darken($olive_oil_garlic_side_color, 19%),
+    2.5px 2.5px 2px darken($olive_oil_garlic_side_color, 19%),
+  }
+  
+  &__chilly_peppers_side {
+    font-weight: 700;
+    font-size: 1.15rem;
+    font-style: italic;
+    letter-spacing: 2px; 
+    font-family: 'Cabin', sans-serif;
+    color: lighten($sesame_side_color, 58%);
+    text-shadow: 0.5px 0.5px 0px lighten($chilly_pepper_side_color, 20%),
+    1px 1px 0px lighten($chilly_pepper_side_color, 45%),
+    1.5px 1.5px 0px lighten($chilly_pepper_side_color, 37%),
+    2px 2px 0px lighten($chilly_pepper_side_color, 49%),
+    2.5px 2.5px 0px darken($chilly_pepper_side_color, 19%),
+    2.5px 2.5px 2px darken($chilly_pepper_side_color, 19%),
+  }
+
+  &__fresh_oregano_side {
+    letter-spacing: 2px; 
+    font-size: 1.15rem;
+    font-style: italic;
+    font-family: 'Cabin', sans-serif;
+    color: lighten($oregano_side_color, 58%);
+    text-shadow: 0.5px 0.5px 0px lighten($oregano_side_color, 20%),
+    1px 1px 0px lighten($oregano_side_color, 45%),
+    1.5px 1.5px 0px lighten($oregano_side_color, 37%),
+    2px 2px 0px lighten($oregano_side_color, 49%),
+    2.5px 2.5px 0px darken($oregano_side_color, 19%),
+    2.5px 2.5px 2px darken($oregano_side_color, 19%),
+  }
+
+  &__garlic_butter_side {
+    font-size: 1.15rem;
+    letter-spacing: 2px; 
+    font-style: italic;
+    font-family: 'Cabin', sans-serif;
+    color: lighten($garlic_butter_side_color, 58%);
+    text-shadow: 0.5px 0.5px 0px lighten($garlic_butter_side_color, 20%),
+    1px 1px 0px lighten($garlic_butter_side_color, 45%),
+    1.5px 1.5px 0px lighten($garlic_butter_side_color, 37%),
+    2px 2px 0px lighten($garlic_butter_side_color, 49%),
+    2.5px 2.5px 0px darken($garlic_butter_side_color, 19%),
+    2.5px 2.5px 2px darken($garlic_butter_side_color, 19%),
+  }
+}
+// Text efect end
+
+// Start Captcha badge
+.grecaptcha-badge {
+  // visibility: hidden;
+  bottom: 0 !important;
+}
+
+input {
+  text-transform: lowercase;
+}
+
+textarea {
+  text-transform: lowercase;
+}
+// End Captcha badge
+
+// Pizza Tracker Start
+
+.product-tracker-centerize {
+  & > div {
+    justify-content: center;
+  }
+}
+
+.RSPBprogressBar {
+  height: 3rem !important; 
+}
+.RSPBprogression {
+  height: 3rem !important;
+}
+// Pizza Tracker End
+
+// Fe Icons Start
+.filled {
+  fill: currentColor;
+}
+// Fe Icons End
+
+
+
+// Lunch & Breakfast Section Start
+.market-launch-carousel-section {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.4;
+  color: $black;
+  -webkit-font-smoothing: antialiased;
+  font-variant-ligatures: none;
+  font-weight: 400;
+  font-style: normal;
+  font-feature-settings: "lnum";
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  clear: both;
+  padding: 0;
+  position: relative;
+
+  .text {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: $black;
+    line-height: 1.4;
+    color: $black;
+    -webkit-font-smoothing: antialiased;
+    font-variant-ligatures: none;
+    font-weight: 400;
+    font-style: normal;
+    font-feature-settings: "lnum";
+    font-size: 16px;
+    max-width: 380px;
+
+    .market-launch-slider {
+      -webkit-text-size-adjust: 100%;
+      line-height: 1.4;
+      color: $black;
+      -webkit-font-smoothing: antialiased;
+      font-variant-ligatures: none;
+      font-weight: 400;
+      font-style: normal;
+      font-feature-settings: "lnum";
+      font-size: 16px;
+      box-sizing: border-box;
+      user-select: none;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+      display: block;
+      margin: 0;
+    }
+  }
+}
+// Lunch & Breakfast Section End

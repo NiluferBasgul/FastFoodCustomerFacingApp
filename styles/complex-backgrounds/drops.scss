@@ -1,0 +1,44 @@
+$bgcolor: #f7e9dd;
+$transparent: rgba(255, 255, 255, 0);
+
+$color-1: #e4deab;
+$color-2: #9fc5a4;
+
+$size: .9em;
+$big-size: $size*2;
+$min: $size*.3;
+$max: $size*.5;
+
+
+.bg-drops {
+  background: 
+    linear-gradient(68deg,
+      $color-1 $min,
+      $transparent $min*1.1
+    ) $size -#{$size},
+    linear-gradient(-68deg,
+      $color-1 $min,
+      $transparent $min*1.1
+    ) -#{$size} -#{$size},
+    radial-gradient(circle,
+      $color-1 $min,
+      $transparent $min*1.1
+      ) 0 0,
+    
+    linear-gradient(68deg,
+      $color-2 $min,
+      $transparent $min*1.1
+    ) 0 0,
+    linear-gradient(-68deg,
+      $color-2 $min,
+      $transparent $min*1.1
+    ) 0 0,
+    radial-gradient(circle,
+      $color-2 $min,
+      $transparent $min*1.1
+      ) $size $size
+    ;
+  background-size:  $big-size $big-size;
+  background-color: $bgcolor;
+  background-repeat: repeat;
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/common.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/dinners.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/paninis.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/pastas.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/pizzas.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/salads.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/sides.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://cucina.mk/sitemaps/wraps.xml.gz</loc>
+    <lastmod>2021-03-02T23:28:57.256Z</lastmod>
+  </sitemap>
+</sitemapindex>

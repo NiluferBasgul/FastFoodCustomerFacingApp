@@ -1,0 +1,48 @@
+//
+// variables.scss
+// Use this to overwrite Bootstrap and theme variables
+//
+
+
+// Theme variables
+@import 'theme/variables';
+
+// Example of a variable override to change theme's background color
+// Remove the "//" to comment it in and see it in action!
+// $body-bg: #12263F;
+
+$path-to-fonts: '../../public/fonts';
+$path-to-img: '/img';
+$form-check-input-checked-bg-size: 100% 100%;
+$header-spacing-y: 1.3rem;
+$header-margin-bottom: 1rem;
+
+$h1-font-size: 1.625rem !important;
+$h2-font-size: 1.35rem !important;
+$h3-font-size: 1.1025rem !important;
+$h4-font-size: 0.9275rem !important;
+$h5-font-size: 0.8425rem !important;
+$h6-font-size: 0.725rem !important;
+// $input-placeholder-color: lighten($brown, 20%) !important;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 900px,
+  xl: 1000px
+);
+
+$base-font-size: 100%;
+$font: "IBM Plex Sans";
+
+$flour: #EBE5DA;
+$wheat: #F5DEB3;
+$gluten-free: #e2f3c7;
+
+
+$parmesan_side_color: rgb(255, 196, 0);
+$oregano_side_color: rgb(108, 148, 123);
+$chilly_pepper_side_color: rgb(234, 3, 1);
+$olive_oil_garlic_side_color: rgb(204, 190, 65);
+$garlic_butter_side_color: rgb(22, 206, 175);
+$sesame_side_color: rgb(192, 122, 16);

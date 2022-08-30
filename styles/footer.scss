@@ -1,0 +1,170 @@
+/* For mobile phones: */
+
+$darkPrimary: darken($primary, 20%);
+
+.footer {
+	background: $darkPrimary;
+	outline: none;
+	border: none;
+	color: $white;
+	@media only screen and (max-width: 768px) {
+		.footer_main {
+			padding: 0px 0px 30px 0px;
+		}
+	}
+	.footer-right {
+		text-align: right;
+
+		p {
+			font-family: $font;
+			font-size: 16px;
+			color: rgba(0, 0, 0, 0.65);
+		}
+		h4 {
+			font-family: $font;
+			font-size: 24px;
+			font-family: $font;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		margin: 0 auto;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.footer_middle {
+		.slogan {
+			color: lighten($darkPrimary, 80%);
+		}
+
+		p {
+			font-family: $font;
+			font-size: 16px;
+			color: lighten($darkPrimary, 80%);
+		}
+		h4 {
+			font-family: $font;
+			font-size: 24px;
+		}
+		text-align: center;
+		padding: 0;
+	}
+	ul.footer_list {
+		list-style: none;
+		padding-left: 0px;
+		li {
+			color: lighten($darkPrimary, 80%);
+			line-height: 1.6;
+			text-transform: lowercase !important;
+			font-size: 0.9em;
+			font-weight: 500;
+			a {
+				color: lighten($darkPrimary, 80%);
+				font-weight: 500;
+				text-transform: none;
+			}
+		}
+		li.phone {
+			color: lighten($darkPrimary, 85%);
+			font-size: 2rem;
+		}
+		a {
+			&:hover {
+				cursor: pointer;
+				color: $white;
+				text-decoration: none;
+				list-style: none;
+			}
+		}
+	}
+	.footer-left {
+		h4 {
+			font-family: $font;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		padding-left: 0px;
+		justify-content: flex-start;
+	}
+	#hero-cta-email {
+		height: 50px;
+		width: 60%;
+	}
+	.hero-cta__form {
+		input {
+			width: 100%;
+			float: left;
+			border: none;
+			background: rgba(0, 0, 0, 0.25);
+			border-radius: 8px;
+			padding-left: 15px;
+			font-size: 14px;
+			line-height: 18px;
+			height: 18px;
+			font-family: $font;
+			font-weight: 400;
+			opacity: 1;
+			display: block;
+			margin-top: 10px;
+			&:focus {
+				outline: none;
+			}
+
+			&::placeholder {
+				color: darken($white, 10%)
+			}
+		}
+	}
+	.emailsignup {
+		font-family: $font;
+		font-size: 14px;
+		line-height: 14px;
+		word-break: break-all;
+		margin-left: 15px;
+		height: 50px;
+		width: 30%;
+		border: none;
+		background-color: lighten($darkPrimary, 50%);
+		color: $darkPrimary;
+		text-transform: uppercase;
+		border-radius: 50px;
+		margin-top: 10px;
+	}
+	.trustlogos {
+		content: url(/images/trust.png);
+		margin: 10px auto;
+		max-width: 100%;
+	}
+	.footer_trust_top {
+		width: 100%;
+		margin: 20px auto;
+		text-align: center;
+		p {
+			font-family: $font;
+			font-size: 18px;
+			font-weight: 400;
+			color: rgb(0, 0, 0.65);
+		}
+	}
+	.footer_main {
+		margin: 20px 0px 20px 0px;
+	}
+	.footer_copyright {
+		p {
+			font-size: 1rem;
+			color: rgb(197 247 217);
+			padding-top: 20px;
+		}
+	}
+	.footer__partners {
+		img {
+			float: right;
+			margin: 10px auto;
+			max-width: 100%;
+		}
+	}
+
+	#hero-cta-email {
+		color: $white;
+		text-transform: lowercase;
+	}
+}

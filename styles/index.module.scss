@@ -1,0 +1,47 @@
+@import "./variables";
+
+.Carousel {
+  position: relative;
+  z-index: -0;
+}
+
+.MenuItems {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.Products {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 19.5rem));
+  justify-content: center;
+  justify-items: stretch;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(11rem, 27rem));
+  }
+}
+
+.Filters {
+  margin-bottom: 2rem;
+}
+
+:export {
+  white: $white;
+  primary: $primary;
+  secondary: $secondary;
+  gray_100: $gray-100;
+  brown: $brown;
+  parmesan_side_color_light: lighten($parmesan_side_color, 59%);
+  parmesan_side_color: $parmesan_side_color;
+  fresh_oregano_side_color_light: lighten($oregano_side_color, 59%);
+  fresh_oregano_side_color: $oregano_side_color;
+  chilly_peppers_side_color_light: lighten($chilly_pepper_side_color, 59%);
+  chilly_peppers_side_color: $chilly_pepper_side_color;
+  olive_oil_garlic_side_color_light: lighten($olive_oil_garlic_side_color, 59%);
+  olive_oil_garlic_side_color: $olive_oil_garlic_side_color;
+  sesame_side_color_light: lighten($sesame_side_color, 59%);
+  sesame_side_color: $sesame_side_color;
+  garlic_butter_side_color_light: lighten($garlic_butter_side_color, 59%);
+  garlic_butter_side_color: $garlic_butter_side_color;
+}

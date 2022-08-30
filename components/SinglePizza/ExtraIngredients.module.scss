@@ -1,0 +1,44 @@
+@import "styles/variables";
+
+
+.ExtraIngredientsContainer {
+    .CustomSize {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+        margin-top: calc((1.5em - 1.75rem)/2) !important;
+        margin-right: 1rem;
+    }
+
+    border-radius: 1rem;
+
+    .ExtraIngredients {
+        max-height: 50vh;
+    
+        .ingredientContainer {
+            &:hover {
+                background: $primary;
+            }
+    
+            padding: .9rem 3rem;
+            cursor: pointer;
+            user-select: none;
+        }
+    
+        hr {
+            margin: 0;
+            padding: 0;
+            border: 0.1px solid $primary;
+        }
+    }
+
+    .Name {
+        text-transform: lowercase;
+        font-weight: 400;
+        font-size: 1.3rem;
+    }
+
+    .Price {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+>
+  <url>
+    <loc>https://cucina.mk/dinners/crispy-chicken-dinner</loc>
+    <lastmod>2021-03-02T23:28:57.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cucina.mk/dinners/chicken-parm-dinner</loc>
+    <lastmod>2021-03-02T23:28:57.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cucina.mk/dinners/curry-chicken-dinner</loc>
+    <lastmod>2021-03-02T23:28:57.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cucina.mk/dinners/alfredo-chicken-dinner</loc>
+    <lastmod>2021-03-02T23:28:57.600Z</lastmod>
+  </url>
+</urlset>

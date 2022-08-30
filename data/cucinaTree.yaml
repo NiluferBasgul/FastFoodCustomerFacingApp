@@ -1,0 +1,806 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/bayraak/CucinaOrder/1.0.0
+info:
+  description: Cucina Online Ordering Platform
+  version: "1.0.0"
+  title: CucinaOrder RESTful API
+  contact:
+    email: ali@cucina.mk
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+paths:
+  /order:
+    get:
+      tags:
+        - order
+      summary: searches inventory
+      operationId: searchInventory
+      description: |
+        By passing in the appropriate options, you can search for
+        available inventory in the system
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up inventory
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: number of records to skip for pagination
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Orders'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - order
+      summary: creates a new order
+      operationId: createOrder
+      description: Adds a new item to the system
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteOrder'
+        description: Order item to add
+components:    
+  schemas:
+    BaseCustomizations:
+      additionalProperties: false
+      properties:
+          disabledIngredients:
+            $ref: '#/components/schemas/EnhancedIngredients'
+          extraIngredients:
+            $ref: '#/components/schemas/EnhancedIngredients'
+          extraSauce:
+            $ref: '#/components/schemas/PricedSauces'
+      required:
+          - extraSauce
+          - extraIngredients
+      type: object
+    CompleteOrder:
+      additionalProperties: false
+      properties:
+        address:
+          type: string
+        comment:
+          type: string
+        menuItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomizableMenuItem'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        phone:
+          type: string
+        protectTheEnvironment:
+          type: boolean
+        terms:
+          type: boolean
+      required:
+          - address
+          - menuItems
+          - paymentType
+          - phone
+          - protectTheEnvironment
+          - terms
+      type: object
+    CrustType:
+      enum:
+          - CLASSIC_WHITE
+          - GLUTEN_FREE
+          - WHOTE_WHEAT
+      type: string
+    CucinaTree:
+      additionalProperties: false
+      properties:
+          dessertMenu:
+            $ref: '#/components/schemas/FoodSet'
+          drinks:
+            $ref: '#/components/schemas/FoodSet'
+          juicesSmoothies:
+            items: {}
+            type: array
+          lastAdditions:
+            $ref: '#/components/schemas/FoodSet'
+          mainMenu:
+            $ref: '#/components/schemas/MainMenu'
+          sauces:
+            $ref: '#/components/schemas/FoodSet'
+      required:
+          - mainMenu
+          - dessertMenu
+          - juicesSmoothies
+          - drinks
+          - sauces
+          - lastAdditions
+      type: object
+    CustomizableMenuItem:
+      additionalProperties: false
+      properties:
+          count:
+            type: number
+          customizations:
+            $ref: '#/components/schemas/PizzaCustomizations'
+          disabledIngredients:
+            anyOf:
+                - $ref: '#/components/schemas/EnhancedIngredients'
+                - additionalProperties: false
+                  type: object
+          imgSrc:
+            type: string
+          menuCategory:
+            $ref: '#/components/schemas/MenuCategoryType'
+          name:
+            type: string
+            nullable: true
+          price:
+            type: number
+            nullable: true
+          slug:
+            $ref: '#/components/schemas/FoodSlug'
+          standartIngredients:
+            anyOf:
+              - $ref: '#/components/schemas/EnhancedIngredients'
+              - additionalProperties: false
+            type: object
+      required:
+          - customizations
+      type: object
+    EnhancedIngredients:
+      additionalProperties: false
+      properties:
+          ALFREDO_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          MOZZARELLA:
+            $ref: '#/components/schemas/IngredientDetails'
+          ALMONDS_AND_CREAMY_BALSAMIC:
+            $ref: '#/components/schemas/IngredientDetails'
+          ARUGULA:
+            $ref: '#/components/schemas/IngredientDetails'
+          AVOCADO:
+            $ref: '#/components/schemas/IngredientDetails'
+          BALSAMIC:
+            $ref: '#/components/schemas/IngredientDetails'
+          BASIL:
+            $ref: '#/components/schemas/IngredientDetails'
+          BBQ_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          BOILED_EGG:
+            $ref: '#/components/schemas/IngredientDetails'
+          BROCCOLI:
+            $ref: '#/components/schemas/IngredientDetails'
+          CARAMELIZED_ONION:
+            $ref: '#/components/schemas/IngredientDetails'
+          CEASER_DRESSING:
+            $ref: '#/components/schemas/IngredientDetails'
+          CHEDDAR:
+            $ref: '#/components/schemas/IngredientDetails'
+          CHICKPEAS:
+            $ref: '#/components/schemas/IngredientDetails'
+          CORN:
+            $ref: '#/components/schemas/IngredientDetails'
+          CRANBERRIES:
+            $ref: '#/components/schemas/IngredientDetails'
+          CREAMY_CEASAR_DRESSING:
+            $ref: '#/components/schemas/IngredientDetails'
+          CREAMY_CURRY:
+            $ref: '#/components/schemas/IngredientDetails'
+          CRISPY_CHICKEN:
+            $ref: '#/components/schemas/IngredientDetails'
+          CROTON:
+            $ref: '#/components/schemas/IngredientDetails'
+          CROUTONS_AND_SIDE_HOMEMADE_GARLIC_BREAD:
+            $ref: '#/components/schemas/IngredientDetails'
+          CRUSHED:
+            $ref: '#/components/schemas/IngredientDetails'
+          CUCINA_SIGNATURE_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          CUCUMBER:
+            $ref: '#/components/schemas/IngredientDetails'
+          CURRY_MARINARA_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          DRIED_CARNBERRIES:
+            $ref: '#/components/schemas/IngredientDetails'
+          EGG:
+            $ref: '#/components/schemas/IngredientDetails'
+          EXTRA_MOZZARELLA:
+            $ref: '#/components/schemas/IngredientDetails'
+          E_V_O_O:
+            $ref: '#/components/schemas/IngredientDetails'
+          FETA_CHEESE:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_ARUGULA:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_BASIL:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_MIXED_CHEESE:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_MOZZARELLA:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_PARSLEY_LEAVES:
+            $ref: '#/components/schemas/IngredientDetails'
+          FRESH_PEPPER:
+            $ref: '#/components/schemas/IngredientDetails'
+          GARLIC_BUTTER:
+            $ref: '#/components/schemas/IngredientDetails'
+          GOAT_CHEESE:
+            $ref: '#/components/schemas/IngredientDetails'
+          GORGONZOLA:
+            $ref: '#/components/schemas/IngredientDetails'
+          GREEK_DRESSING:
+            $ref: '#/components/schemas/IngredientDetails'
+          HAM:
+            $ref: '#/components/schemas/IngredientDetails'
+          HEINZ_KETCHUP:
+            $ref: '#/components/schemas/IngredientDetails'
+          HOMEMADE_BREADED_CHICKEN_FILLET:
+            $ref: '#/components/schemas/IngredientDetails'
+          HOMEMADE_TUNA_MIX:
+            $ref: '#/components/schemas/IngredientDetails'
+          HONEY_MUSTARD:
+            $ref: '#/components/schemas/IngredientDetails'
+          HONEY_MUSTERD_AND_MAYO:
+            $ref: '#/components/schemas/IngredientDetails'
+          HOUSE_GREENS:
+            $ref: '#/components/schemas/IngredientDetails'
+          ITALIAN_DRESSING:
+            $ref: '#/components/schemas/IngredientDetails'
+          KALAMATA_OLIVES:
+            $ref: '#/components/schemas/IngredientDetails'
+          LETTUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          MARINARA:
+            $ref: '#/components/schemas/IngredientDetails'
+          MAYO:
+            $ref: '#/components/schemas/IngredientDetails'
+          MIXED_GREENS:
+            $ref: '#/components/schemas/IngredientDetails'
+          MOZZARELLA:
+            $ref: '#/components/schemas/IngredientDetails'
+          MUSHROOMS:
+            $ref: '#/components/schemas/IngredientDetails'
+          OIL_AND_VINEGAR:
+            $ref: '#/components/schemas/IngredientDetails'
+          OLIVE:
+            $ref: '#/components/schemas/IngredientDetails'
+          OLIVE_OIL:
+            $ref: '#/components/schemas/IngredientDetails'
+          OLIVE_OIL_AND_GARLIC:
+            $ref: '#/components/schemas/IngredientDetails'
+          ONION:
+            $ref: '#/components/schemas/IngredientDetails'
+          OREGANO:
+            $ref: '#/components/schemas/IngredientDetails'
+          PARMESAN:
+            $ref: '#/components/schemas/IngredientDetails'
+          PENNY_PASTA:
+            $ref: '#/components/schemas/IngredientDetails'
+          PEPPERONI:
+            $ref: '#/components/schemas/IngredientDetails'
+          PEPPER_SPICY_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          PESTO:
+            $ref: '#/components/schemas/IngredientDetails'
+          PICKLED_JALAPENOS:
+            $ref: '#/components/schemas/IngredientDetails'
+          PINEAPPLE:
+            $ref: '#/components/schemas/IngredientDetails'
+          PROSCIUTTO:
+            $ref: '#/components/schemas/IngredientDetails'
+          RED_ONION:
+            $ref: '#/components/schemas/IngredientDetails'
+          RICCOTTA:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROASTED_BBQ_CHICKEN:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROASTED_CHICKEN:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROASTED_HOT_PEPPER:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROASTED_PINEAPPLE:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROASTED_RED_PEPPER:
+            $ref: '#/components/schemas/IngredientDetails'
+          ROMANO_CHEESE:
+            $ref: '#/components/schemas/IngredientDetails'
+          SALAMI:
+            $ref: '#/components/schemas/IngredientDetails'
+          SESAME_SEEDS:
+            $ref: '#/components/schemas/IngredientDetails'
+          SEA_SALT:
+            $ref: '#/components/schemas/IngredientDetails'
+          SHAVED_BEETS:
+            $ref: '#/components/schemas/IngredientDetails'
+          SMOKED_KASHKAVAL:
+            $ref: '#/components/schemas/IngredientDetails'
+          SOUR_CREAM:
+            $ref: '#/components/schemas/IngredientDetails'
+          SPINACH:
+            $ref: '#/components/schemas/IngredientDetails'
+          SUN_DRIED_TOMATOES:
+            $ref: '#/components/schemas/IngredientDetails'
+          TERIYAKI_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          TOFU:
+            $ref: '#/components/schemas/IngredientDetails'
+          TOMATO:
+            $ref: '#/components/schemas/IngredientDetails'
+          TOMATOES_SAUCE:
+            $ref: '#/components/schemas/IngredientDetails'
+          TOPPED_OF_CHEESE:
+            $ref: '#/components/schemas/IngredientDetails'
+          TRUFFLE_OIL:
+            $ref: '#/components/schemas/IngredientDetails'
+          VEGAN_MOZZARELLA:
+            $ref: '#/components/schemas/IngredientDetails'
+      type: object
+    FoodSet:
+      additionalProperties: false
+      properties:
+          12x-chicken-wings:
+            $ref: '#/components/schemas/MenuItem'
+          6x-chicken-wings:
+            $ref: '#/components/schemas/MenuItem'
+          alfredo-chicken-dinner:
+            $ref: '#/components/schemas/MenuItem'
+          baked-ziti:
+            $ref: '#/components/schemas/MenuItem'
+          bbq-chicken-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          beats-and-goats-salad:
+            $ref: '#/components/schemas/MenuItem'
+          breakfast-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          browny:
+            $ref: '#/components/schemas/MenuItem'
+          caesar-salad:
+            $ref: '#/components/schemas/MenuItem'
+          californian-panini:
+            $ref: '#/components/schemas/MenuItem'
+          californian-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          caprese-panini:
+            $ref: '#/components/schemas/MenuItem'
+          caprese-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          capricoza-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          cheesy-fries:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-alfredo-pasta:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-and-broccoli-pasta:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-caesar-panini:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-caesar-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-milanese-panini:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-milanese-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-parm-dinner:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-parm-pasta:
+            $ref: '#/components/schemas/MenuItem'
+          chicken-pesto-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          classic-cheese-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          coca-cola-0-5l:
+            $ref: '#/components/schemas/MenuItem'
+          crispy-chicken-dinner:
+            $ref: '#/components/schemas/MenuItem'
+          cucina-salad:
+            $ref: '#/components/schemas/MenuItem'
+          curry-chicken-dinner:
+            $ref: '#/components/schemas/MenuItem'
+          da-lir-salad:
+            $ref: '#/components/schemas/MenuItem'
+          el-diablo-panini:
+            $ref: '#/components/schemas/MenuItem'
+          el-diablo-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          fanta-0-5l:
+            $ref: '#/components/schemas/MenuItem'
+          french-fries:
+            $ref: '#/components/schemas/MenuItem'
+          freshly-squeezed-orange-juice:
+            $ref: '#/components/schemas/MenuItem'
+          greek-salad:
+            $ref: '#/components/schemas/MenuItem'
+          hawaiian-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          italiano-panini:
+            $ref: '#/components/schemas/MenuItem'
+          italiano-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          la-bianca-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          love-tie-pasta:
+            $ref: '#/components/schemas/MenuItem'
+          much-meat-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          pasta-alla-curry:
+            $ref: '#/components/schemas/MenuItem'
+          penne-alla-gorgonzola-pasta:
+            $ref: '#/components/schemas/MenuItem'
+          pepperoni-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          pizza-fries:
+            $ref: '#/components/schemas/MenuItem'
+          pollo-alla-gorgonzola-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          prosciutto-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          quattro-formaggio-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          red-chicken-curry-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          the-chicken-teriyaki-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          the-farmers-market-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          the-goat-panini:
+            $ref: '#/components/schemas/MenuItem'
+          the-goat-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          the-new-yorker-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          the-real-cheesecake:
+            $ref: '#/components/schemas/MenuItem'
+          the-real-tuna-pizza:
+            $ref: '#/components/schemas/MenuItem'
+          the-tuna-panini:
+            $ref: '#/components/schemas/MenuItem'
+          the-tuna-wrap:
+            $ref: '#/components/schemas/MenuItem'
+          tomatoes-and-mozzarella:
+            $ref: '#/components/schemas/MenuItem'
+          white-chicken-curry-pizza:
+            $ref: '#/components/schemas/MenuItem'
+      type: object
+    FoodSlug:
+      type: string
+      enum:
+          - the-new-yorker-pizza
+          - classic-cheese-pizza
+          - pollo-alla-gorgonzola-pizza
+          - prosciutto-pizza
+          - la-bianca-pizza
+          - bbq-chicken-pizza
+          - the-real-tuna-pizza
+          - chicken-pesto-pizza
+          - hawaiian-pizza
+          - breakfast-pizza
+          - capricoza-pizza
+          - quattro-formaggio-pizza
+          - white-chicken-curry-pizza
+          - red-chicken-curry-pizza
+          - much-meat-pizza
+          - pepperoni-pizza
+          - the-farmers-market-pizza
+          - the-chicken-teriyaki-pizza
+          - the-goat-wrap
+          - californian-wrap
+          - chicken-milanese-wrap
+          - caprese-wrap
+          - chicken-caesar-wrap
+          - the-tuna-wrap
+          - el-diablo-wrap
+          - italiano-wrap
+          - the-goat-panini
+          - californian-panini
+          - chicken-milanese-panini
+          - caprese-panini
+          - chicken-caesar-panini
+          - the-tuna-panini
+          - el-diablo-panini
+          - italiano-panini
+          - caesar-salad
+          - beats-and-goats-salad
+          - greek-salad
+          - tomatoes-and-mozzarella
+          - cucina-salad
+          - da-lir-salad
+          - chicken-parm-pasta
+          - love-tie-pasta
+          - chicken-and-broccoli-pasta
+          - baked-ziti
+          - penne-alla-gorgonzola-pasta
+          - pasta-alla-curry
+          - chicken-alfredo-pasta
+          - chicken-parm-dinner
+          - curry-chicken-dinner
+          - alfredo-chicken-dinner
+          - crispy-chicken-dinner
+          - french-fries
+          - cheesy-fries
+          - pizza-fries
+          - 6x-chicken-wings
+          - 12x-chicken-wings
+          - coca-cola-0-5l
+          - fanta-0-5l
+          - freshly-squeezed-orange-juice
+          - the-real-cheesecake
+          - browny
+    HasPrice:
+      type: object
+      additionalProperties: false
+      properties:
+          price:
+            type: number
+      required:
+          - price
+    IngredientDetails:
+      additionalProperties: false
+      properties:
+          category:
+            enum:
+                - SAUCE
+                - CHEESE
+                - PROTEIN
+                - VEGGIE
+                - VEGAN
+                - SPICE
+            type: string
+          price:
+            type: number
+      required:
+          - category
+          - price
+      type: object
+    IngredientType:
+      enum:
+          - SAUCE
+          - CHEESE
+          - PROTEIN
+          - VEGGIE
+          - VEGAN
+          - SPICE
+      type: string
+    MainMenu:
+      additionalProperties: false
+      properties:
+          'dinners':
+            anyOf:
+                - $ref: '#/components/schemas/FoodSet'
+                - additionalProperties: false
+            type: object
+          'paninis':
+            $ref: '#/components/schemas/FoodSet'
+          'pastas':
+            anyOf:
+                - $ref: '#/components/schemas/FoodSet'
+                - additionalProperties: false
+            type: object
+          'pizzas':
+            $ref: '#/components/schemas/FoodSet'
+          'salads':
+            $ref: '#/components/schemas/FoodSet'
+          'sides':
+            anyOf:
+                - $ref: '#/components/schemas/FoodSet'
+                - additionalProperties: false
+            type: object
+          'wraps':
+            $ref: '#/components/schemas/FoodSet'
+      required:
+          - 'pizzas'
+          - 'salads'
+          - 'wraps'
+          - 'paninis'
+          - 'dinners'
+          - 'sides'
+          - 'pastas'
+      type: object
+    MenuCategoryType:
+      enum:
+          - pizzas
+          - salads
+          - paninis
+          - wraps
+          - dinners
+          - pastas
+          - sides
+      type: string
+    MenuItem:
+      additionalProperties: false
+      properties:
+          disabledIngredients:
+            anyOf:
+                - $ref: '#/components/schemas/EnhancedIngredients'
+                - additionalProperties: false
+            type: object
+          imgSrc:
+            type: string
+          menuCategory:
+            $ref: '#/components/schemas/MenuCategoryType'
+          name:
+            type: string
+            nullable: true
+          price:
+            type: number
+            nullable: true
+          slug:
+            $ref: '#/components/schemas/FoodSlug'
+          standartIngredients:
+            anyOf:
+                - $ref: '#/components/schemas/EnhancedIngredients'
+                - additionalProperties: false
+            type: object
+      type: object
+    OrderDetails:
+      additionalProperties: false
+      properties:
+          address:
+            type: string
+          comment:
+            type: string
+          paymentType:
+            $ref: '#/components/schemas/PaymentType'
+          phone:
+            type: string
+          protectTheEnvironment:
+            type: boolean
+          terms:
+            type: boolean
+      required:
+          - terms
+          - protectTheEnvironment
+          - phone
+          - address
+          - paymentType
+      type: object
+    OrderSet:
+      additionalProperties:
+          $ref: '#/components/schemas/CustomizableMenuItem'
+      type: object
+    Orders:
+      additionalProperties: false
+      properties:
+        orders:
+          $ref: '#/components/schemas/OrderSet'
+      required:
+          - orders
+      type: object
+    PaymentType:
+      enum:
+          - CREDIT_CARD
+          - CASH
+      type: string
+    PizzaCustomizations:
+      additionalProperties: false
+      properties:
+          crustAdditions:
+            $ref: '#/components/schemas/PricedCrustAdditions'
+          crustType:
+            $ref: '#/components/schemas/PricedCrustType'
+          disabledIngredients:
+            $ref: '#/components/schemas/EnhancedIngredients'
+          extraIngredients:
+            $ref: '#/components/schemas/EnhancedIngredients'
+          extraSauce:
+            $ref: '#/components/schemas/PricedSauces'
+      required:
+          - crustAdditions
+          - crustType
+          - extraIngredients
+          - extraSauce
+      type: object
+    PricedCrustAdditions:
+      additionalProperties: false
+      properties:
+          CHILLY_PEPPERS_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+          FRESH_OREGANO_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+          GARLIC_BUTTER_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+          OLIVE_OIL_GARLIC_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+          PARMESAN_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+          SESAME_SIDE:
+            $ref: '#/components/schemas/HasPrice'
+      type: object
+    PricedCrustType:
+      additionalProperties: false
+      properties:
+          CLASSIC_WHITE:
+            $ref: '#/components/schemas/HasPrice'
+          GLUTEN_FREE:
+            $ref: '#/components/schemas/HasPrice'
+          WHOTE_WHEAT:
+            $ref: '#/components/schemas/HasPrice'
+      type: object
+    PricedSauces:
+      anyOf:
+      - additionalProperties: false
+        properties:
+          ALFREDO:
+            $ref: '#/components/schemas/HasPrice'
+          BBQ:
+            $ref: '#/components/schemas/HasPrice'
+          HEINZ_KETCHUP:
+            $ref: '#/components/schemas/HasPrice'
+          HOT_SAUCE:
+            $ref: '#/components/schemas/HasPrice'
+          MARINARA:
+            $ref: '#/components/schemas/HasPrice'
+          PESTO:
+            $ref: '#/components/schemas/HasPrice'
+          RANCH:
+            $ref: '#/components/schemas/HasPrice'
+          SPICY_MARINARA:
+            $ref: '#/components/schemas/HasPrice'
+          TERIYAKI:
+            $ref: '#/components/schemas/HasPrice'
+          THOMY_MAYO:
+            $ref: '#/components/schemas/HasPrice'
+          TRUFFLE_OIL:
+            $ref: '#/components/schemas/HasPrice'
+        type: object
+    SingleMenu:
+      additionalProperties: false
+      properties:
+          'dinners':
+            $ref: '#/components/schemas/FoodSet'
+          'paninis':
+            $ref: '#/components/schemas/FoodSet'
+          'pastas':
+            $ref: '#/components/schemas/FoodSet'
+          'pizzas':
+            $ref: '#/components/schemas/FoodSet'
+          'salads':
+            $ref: '#/components/schemas/FoodSet'
+          'sides':
+            $ref: '#/components/schemas/FoodSet'
+          'wraps':
+            $ref: '#/components/schemas/FoodSet'
+      required:
+          - 'pizzas'
+          - 'salads'
+          - 'wraps'
+          - 'paninis'
+          - 'dinners'
+          - 'sides'
+          - 'pastas'
+      type: object

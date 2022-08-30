@@ -1,0 +1,44 @@
+@import "styles/variables";
+
+
+.DeliveryTimeContainer {
+    .CustomSize {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+        margin-top: calc((1.5em - 1.75rem)/2) !important;
+        margin-right: 1rem;
+    }
+
+    border-radius: 1rem;
+
+    .DeliveryTime {
+        max-height: 50vh;
+    
+        .ingredientContainer {
+            &:hover {
+                background: $primary;
+                color: white;
+            }
+    
+            padding: .9rem 3rem;
+            cursor: pointer;
+            user-select: none;
+        }
+    
+        hr {
+            margin: 0;
+            padding: 0;
+            border: 0.1px solid $primary;
+        }
+    }
+
+    .Hour {
+        font-weight: 800;
+        font-size: 1.5rem;
+    }
+
+    .Price {
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+}

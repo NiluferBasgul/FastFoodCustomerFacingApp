@@ -1,0 +1,57 @@
+@import "./complex-backgrounds/drops.scss";
+
+.bg-sofra-bezi {
+	background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 0), linear-gradient( rgba(200,0,0,.5) 50%, transparent 0);
+	background-size: 40px 40px;
+}
+
+.bg-premium-dark-green-squares {
+	$size: 30px;
+	$bigSize: 60px;
+	$smallOpacity: 0;
+
+	background-color: #000;
+	background-image: repeating-linear-gradient(transparent, transparent $size, 
+	rgba(0,255,255, .25) $size
+	,rgba(0,255,255, .25) $bigSize), 
+	repeating-linear-gradient(90deg, rgba(0,255,255, .25), rgba(0,255,255, .25) $size,
+	 transparent $size, transparent $bigSize),
+	 repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(255,255,255,$smallOpacity) 4px, rgba(255,255,255,$smallOpacity) 8px), repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,$smallOpacity) 4px, rgba(255,255,255,$smallOpacity) 8px), repeating-linear-gradient(transparent, transparent 20px, rgba(100,250,250, .2) 20px, rgba(100,250,250, .2) 21px, transparent 21px,transparent 29px, rgba(100,250,250, .2) 29px, rgba(100,250,250, .2) 30px, transparent 30px, transparent $size), repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(100,250,250, .2) 20px, rgba(100,250,250, .2) 21px, transparent 21px,transparent 29px, rgba(100,250,250, .2) 29px, rgba(100,250,250, .2) 30px, transparent 30px, transparent $size);
+}
+
+.bg-leaf {
+	$forest: #2E644A;
+	$lime: #73D645;
+	$trans: transparent;
+	$spring: #5ACB65;
+	$sage: #d8c200;
+
+
+	background-color: $forest;
+	background-image:
+		repeating-radial-gradient(
+			circle at 1.5em 1.5em,
+			$sage, 
+			$sage 0.2em, 
+			$trans 0.22em, 
+			$trans 0.90em, 
+			$sage 0.92em);
+
+	background-size: 3em 3em;
+	background-position: 1em 1.5em;
+}
+
+.bg-sun {
+	background: #ff8008; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #ff8008, #ffc837); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #ff8008, #ffc837); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
+.bg-half-half {
+	background: linear-gradient(125deg, darken($warning, 10%) 50%, darken($danger, 11%) 50%);
+	transition: 0.2s ease;
+	
+	&:hover {
+		background: linear-gradient(65deg, darken($warning, 10%) 50%, darken($danger, 11%) 50%);
+	}
+}
