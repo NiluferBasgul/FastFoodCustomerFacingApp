@@ -80,10 +80,7 @@ const CheckoutPage = () => {
                 </table>
               </div>
             </Accordion>
-
-
             <LastAdditions />
-
             <DeliveryForm />
           </>
         )}

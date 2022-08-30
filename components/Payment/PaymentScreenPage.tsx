@@ -55,6 +55,10 @@ const PaymentScreenPage = () => {
         window.location.href = `${apiUrl}/pay?${queryString}`
     }
 
+    const onMockSubmit = () => {
+        router.replace("/payment-result/success");
+    }
+
     // References for the Form Inputs used to focus corresponding inputs.
     const formFieldsRefObj = {
         cardNumber: useRef(),
@@ -96,7 +100,7 @@ const PaymentScreenPage = () => {
                     cardDateRef={formFieldsRefObj.cardDate}
                     onCardInputFocus={onCardFormInputFocus}
                     onCardInputBlur={onCardInputBlur}
-                    onSubmit={onSubmit}
+                    onSubmit={onMockSubmit}
                 >
                     <Card
                         cardNumber={cardFormState.cardNumber}
