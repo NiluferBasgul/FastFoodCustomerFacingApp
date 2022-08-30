@@ -136,7 +136,7 @@ const SuccessPaymentResult = () => {
             <div className='container mt-5'>
                 <div className='row'>
                     <div className='col px-5'>
-                        {error && <h3 className='text-danger text-center'>Unfortunately, Order Tracking currently doesn't works</h3>}
+                        {/* {error && <h3 className='text-danger text-center'>Unfortunately, Order Tracking currently doesn't works</h3>} */}
                         <ProductTracking currentStep={orderStateToNumber(orderState)} />
                     </div>
                 </div>
