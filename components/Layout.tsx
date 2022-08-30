@@ -11,7 +11,7 @@ type Props = {
   disableFooter?: boolean;
 };
 
-const Layout = ({ children, title = "Cucina Pizza By Design | Order Online Pizza, Pasta, Panini, Wrap, Dinners, Desserts, Juices, Coffee - Skopje, Macedonia", disableFooter = false }: Props) => {
+const Layout = ({ children, title = "Fast Food Restaurant By Design | Order Online Pizza, Pasta, Panini, Wrap, Dinners, Desserts, Juices, Coffee - Skopje, Macedonia", disableFooter = false }: Props) => {
 
   return (
     <>
