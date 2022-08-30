@@ -104,6 +104,15 @@ const DeliveryForm = () => {
         }
     }
 
+    const onMockConfirmOrder = async () => {
+        if (selectedPaymentType === PaymentType.CASH) {
+            setSuccessfulOrder(InternalOrderState.SUCCESSFUL);
+            setFire(true);
+        } else {
+            router.push(`/pay/payment`)
+        }
+    }
+
     const onGoHome = () => {
         setTimeout(() => {
             // alert(serializedORder);
@@ -403,7 +412,7 @@ const DeliveryForm = () => {
                                 &nbsp; {t`cancel`}
                                 </button>
 
-                                <button onClick={() => onConfirmOrder()} className='btn btn-success' disabled={loading}>
+                                <button onClick={() => onMockConfirmOrder()} className='btn btn-success' disabled={loading}>
                                     {loading && <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>}
                                         &nbsp; {t`confirmOrder`}
                                 </button>

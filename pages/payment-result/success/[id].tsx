@@ -22,16 +22,16 @@ const SuccessPaymentResult = () => {
     const { data, error } = useSWRAxios<PurchaseOrder>({ url: `order/customer/${id}` });
 
     useEffect(() => {
-        const updateDto = {
-            orderId: id,
-            paymentStatus: PaymentStatus.PAID
-        }
+        // const updateDto = {
+        //     orderId: id,
+        //     paymentStatus: PaymentStatus.PAID
+        // }
 
-        axiosInstance.put('order/payment', updateDto).then(_ => {
+        // axiosInstance.put('order/payment', updateDto).then(_ => {
 
-        }).catch(_ => {
-            // Notify sentry for fatal update payment status
-        });
+        // }).catch(_ => {
+        //     // Notify sentry for fatal update payment status
+        // });
 
         setTimeout(() => {
             setFire(true)

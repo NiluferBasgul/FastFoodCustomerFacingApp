@@ -61,7 +61,7 @@ const LastAdditions = () => {
                     </div>
                 </div>
 
-                <img alt={item} className={`${styles.UpsellImage}`} src="https://dpe-cdn.azureedge.net/api/medium/Product/Global/D2LBCOKE/NULL/434x404/TR?v=035b9f93732e541c272da2e57d72d1f9-1614431280000" />
+                {/* <img alt={item} className={`${styles.UpsellImage}`} src="https://dpe-cdn.azureedge.net/api/medium/Product/Global/D2LBCOKE/NULL/434x404/TR?v=035b9f93732e541c272da2e57d72d1f9-1614431280000" /> */}
                 {(adding === item) ? <button className="btn btn-secondary w-100 mt-2" type="button" disabled>
                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                  &nbsp;   {`adding`}
