@@ -21,6 +21,8 @@ const SuccessPaymentResult = () => {
 
     const { data, error } = useSWRAxios<PurchaseOrder>({ url: `order/customer/${id}` });
 
+    const [orderState, setOrderState] = useState(OrderState.NEW);
+
     useEffect(() => {
         // const updateDto = {
         //     orderId: id,
@@ -36,6 +38,22 @@ const SuccessPaymentResult = () => {
         setTimeout(() => {
             setFire(true)
         }, 1000)
+
+        setTimeout(() => {
+            setOrderState(OrderState.APPROVED)
+        }, 5000)
+
+        setTimeout(() => {
+            setOrderState(OrderState.PREPARED)
+        }, 10000)
+
+        setTimeout(() => {
+            setOrderState(OrderState.TAKED_OUT)
+        }, 15000)
+
+        setTimeout(() => {
+            setOrderState(OrderState.DELIVERED)
+        }, 20000)
 
         // setTimeout(() => {
         //     router.push('/');
@@ -119,7 +137,7 @@ const SuccessPaymentResult = () => {
                 <div className='row'>
                     <div className='col px-5'>
                         {error && <h3 className='text-danger text-center'>Unfortunately, Order Tracking currently doesn't works</h3>}
-                        <ProductTracking currentStep={orderStateToNumber(data?.orderState || OrderState.NEW)} />
+                        <ProductTracking currentStep={orderStateToNumber(orderState)} />
                     </div>
                 </div>
             </div>

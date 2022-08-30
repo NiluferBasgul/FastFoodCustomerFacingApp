@@ -56,7 +56,7 @@ const PaymentScreenPage = () => {
     }
 
     const onMockSubmit = () => {
-        router.replace("/payment-result/success");
+        router.replace("/payment-result/success/payment-done");
     }
 
     // References for the Form Inputs used to focus corresponding inputs.
