@@ -5,6 +5,7 @@ export enum Size {
     FAMILY = "FAMILY"
 }
 
+// Supported only 4 languages
 export enum SupportedLanguages {
     EN = 'en',
     AL = 'al',
