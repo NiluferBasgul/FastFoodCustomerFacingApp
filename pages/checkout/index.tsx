@@ -13,6 +13,7 @@ import Modal from 'react-modal';
 import { useRouter } from "next/router";
 import PaymentScreenPage from "components/Payment/PaymentScreenPage";
 
+
 Modal.setAppElement('#__next')
 
 const customStyles = {
