@@ -14,7 +14,7 @@ const StandartIngredients = () => {
     const onSelectCrustAddition = (name) => {
         dispatch({ type: "UPDATE_DISABLED_INGREDIENTS", payload: name });
     }
-
+//Return standard ingredients
     return (
         <div>
             {
