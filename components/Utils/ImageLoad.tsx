@@ -8,7 +8,7 @@ interface ImageLoadProps {
     className?: string;
     defaultSrc?: string;
 }
-// TODO: add proper default image path
+
 const DEFAULT_IMAGE_PATH = '/images/menu/pizza/default_one.png'
 
 const ImageLoad = React.memo(({
