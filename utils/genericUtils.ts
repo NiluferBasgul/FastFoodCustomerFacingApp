@@ -21,6 +21,7 @@ export const orderStateToNumber = (orderState: OrderState): number => {
     return stateNumber;
 }
 
+// Emojis
 export const menuCategoryToEmoji = (menuCategory: MenuCategoryType, justOneIcon: boolean = false): string => {
     switch (menuCategory) {
         case MenuCategoryType.DINNERS: return justOneIcon ? '🍽️' : '🍽️ 🥩 🫓 🍟 🥗';
