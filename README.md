@@ -5,7 +5,7 @@ This is a really simple project that shows the usage of Next.js with TypeScript.
 ## Project Overview
 This Fast Food Customer Facing App provides an online ordering system built with Next.js and TypeScript, aimed at delivering a seamless ordering experience for fast food customers.
 
-![Project Screenshot](FastFoodCustomerFacingApp-main/Main-page.png)
+![Project Screenshot](Main-page.png)
 
 ## Deploy your own
 
