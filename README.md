@@ -1,8 +1,11 @@
-# Cucina Order Next.JS
-
-[![CodeFactor](https://www.codefactor.io/repository/github/bayraak/order-cucina/badge)](https://www.codefactor.io/repository/github/bayraak/order-cucina)
+# Fast Food Customer Facing App Next.JS
 
 This is a really simple project that shows the usage of Next.js with TypeScript.
+
+## Project Overview
+This Fast Food Customer Facing App provides an online ordering system built with Next.js and TypeScript, aimed at delivering a seamless ordering experience for fast food customers.
+
+![Project Screenshot](FastFoodCustomerFacingApp-main/image.png)
 
 ## Deploy your own
 
@@ -48,4 +51,7 @@ A `type-check` script is also added to `package.json`, which runs TypeScript's `
 Before push to server we have a husky hook that runs the `imageResizer.ts` in the root directory of the project. It generates `compressedImages.ts` which is the `base64` representation of minimized thumbnails of all images in the `public/images` folder.
 
 Ensure that these files locations are not moved because everything configured to work within the current locations.
+
+Design and Prototyping
+View the Figma design for UI details and user flow here: Figma Design Link.
 
