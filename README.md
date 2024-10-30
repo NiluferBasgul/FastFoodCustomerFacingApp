@@ -54,4 +54,4 @@ Ensure that these files locations are not moved because everything configured to
 
 ## Design and Prototyping
 View the Figma design for UI details and user flow here: Figma Design Link.
-
+https://www.figma.com/design/34obRb30USGJNslQMxBSxT/Fast-Food-Restaurant?node-id=1-24642&t=g9ScsO2kFeH2mLug-1
