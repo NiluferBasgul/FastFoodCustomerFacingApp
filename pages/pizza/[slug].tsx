@@ -8,7 +8,7 @@ import getT from 'next-translate/getT'
 
 //   return {
 //     id,
-//     urlTirle: title,
+//     multiple: title,
 //   };
 // };
 
