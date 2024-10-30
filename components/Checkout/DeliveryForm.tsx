@@ -11,10 +11,6 @@ import useTranslation from "next-translate/useTranslation";
 
 const customStyles = {
     content: {
-        // top: '22.5%',
-        // right: '7%',
-        // left: '7%',
-        // bottom: '5%',
         top: '22.5%',
         backgroundColor: 'transparent',
         border: 0,
