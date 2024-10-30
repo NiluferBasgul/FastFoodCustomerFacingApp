@@ -12,7 +12,7 @@ const RealizedPayment = () => {
         <PaymentScreenPage />
     </Layout>
 }
-
+//WIP
 // export const getStaticPaths = async ({ locales }) => {
 //     const paths = [] as any[];
 
