@@ -34,7 +34,7 @@ export default function CForm({
     const { t } = useTranslation('common');
 
 
-    // TODO: We can improve the regex check with a better approach like in the card component.
+    // TODO: We can improve the regex check with a better approach like in the card component. Will be done in future
     const onCardNumberChange = (event) => {
         let { value, name } = event.target;
         let cardNumber = value;
