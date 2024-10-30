@@ -54,7 +54,7 @@ const SinglePizzaPage = (props: SinglePizzaPageWithoutRouterProps) => {
 
     const [genericError, setGenericError] = useState(false);
 
-    // if id exists we pick the menu item from state.orders, 
+    // if id exists we pick the menu item from state.orders and 
     // if not we pick it from the selected item (by url or by navigating from prev screen)
     const pizza: CustomizableMenuItem<MenuCategoryType.PIZZAS> = !!id ? { ...state?.orders?.[id as string] } : { ...props.item }
     if (isEmpty(pizza)) {
