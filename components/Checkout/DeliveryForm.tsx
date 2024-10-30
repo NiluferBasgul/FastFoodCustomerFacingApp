@@ -22,6 +22,7 @@ const customStyles = {
     }
 };
 
+// Order states
 enum InternalOrderState {
     INITIAL,
     SUCCESSFUL,
