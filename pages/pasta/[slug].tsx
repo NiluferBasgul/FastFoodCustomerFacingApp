@@ -19,7 +19,7 @@ export const getStaticPaths = async ({ locales }) => {
     return {
         paths,
         fallback: false
-        // fallback: true
+        // fallback: true uses only when needed
     }
 }
 
