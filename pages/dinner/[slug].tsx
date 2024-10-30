@@ -56,4 +56,5 @@ export const getStaticProps = async ({ params: { slug }, locale }) => {
     }
 }
 
+
 export default SingleBaseProduct;
