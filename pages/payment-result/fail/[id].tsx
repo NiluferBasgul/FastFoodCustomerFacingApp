@@ -22,7 +22,7 @@ const FailedPaymentResult = () => {
         axiosInstance.put('order/payment', updateDto).then(_ => {
 
         }).catch(_ => {
-            // Notify sentry for fatal update payment status
+            // Notify sentry for fatal update payment with status
         });
 
         setTimeout(() => {
