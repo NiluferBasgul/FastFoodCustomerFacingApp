@@ -22,6 +22,7 @@ const Menu = ({ selected, menus, onClick }: Props) => {
     threshold: 0,
   });
 
+//Uncommit if needed
   // useEffect(() => {
   //   //@ts-ignore
   //   if (menuRef.current?.scrollLeft !== undefined && inView === true) {
