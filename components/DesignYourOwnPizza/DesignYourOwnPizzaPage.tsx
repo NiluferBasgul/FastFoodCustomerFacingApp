@@ -38,7 +38,7 @@ const DesignYourOwnPizzaPage = (props: DesignYourOwnPizzaPageWithoutRouterProps)
 
     const { dispatch, state } = React.useContext(Context) as ContextProps;
 
-    // Having id means product is in Cart and edit mode should enabled
+    // Having id means product is in Cart and edit mode should enabled and
     // We're determining if slug comes from props or by routing
     const { id } = router.query;
 
