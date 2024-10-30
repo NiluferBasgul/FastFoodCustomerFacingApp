@@ -31,4 +31,5 @@ const Layout = ({ children, title = "Fast Food Restaurant By Design | Order Onli
   )
 };
 
+
 export default Layout;
