@@ -52,6 +52,6 @@ Before push to server we have a husky hook that runs the `imageResizer.ts` in th
 
 Ensure that these files locations are not moved because everything configured to work within the current locations.
 
-Design and Prototyping
+## Design and Prototyping
 View the Figma design for UI details and user flow here: Figma Design Link.
 
